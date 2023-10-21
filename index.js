@@ -12,9 +12,13 @@ text.addEventListener("keypress", function (e) {
 });
 
 search.addEventListener("input", function (f) {
-  const searchData = data.filter((a) => a.text === f.target.value);
-  console.log(searchData);
-  displayData(searchData);
+  if (f.target.value != "") {
+    const searchData = data.filter((a) => a.text === f.target.value);
+    console.log(searchData);
+    displayData(searchData);
+  } else {
+    displayData(data);
+  }
 });
 
 const data = [];
