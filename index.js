@@ -1,52 +1,50 @@
-document.getElementById("text").value = "";
-document.getElementById("text").addEventListener("keypress", function (e) {
+let text = document.getElementById("text");
+let list = document.getElementById("list");
+let search = document.getElementById("search");
+text.value = "";
+search.value = "";
+let index = 0;
+
+text.addEventListener("keypress", function (e) {
   if (e.key === "Enter") {
     btnSubmit();
   }
 });
 
-const data = [
-  {
-    text: "abc",
-    isChecked: false,
-  },
-  {
-    text: "abc2",
-    isChecked: true,
-  },
-];
-displayData(data);
+search.addEventListener("input", function (f) {
+  const searchData = data.filter((a) => a.text === f.target.value);
+  console.log(searchData);
+  displayData(searchData);
+});
+
+const data = [];
 
 function btnSubmit() {
-  let txtValue = document.getElementById("text").value;
+  let txtValue = text.value;
   if (txtValue) {
-    // data.push(txtValue);
     let task = {
+      index: index++,
       isChecked: false,
       text: txtValue,
     };
-
     data.push(task);
+    console.log(data);
   }
-  console.log(data);
   displayData(data);
 }
 
 function displayData(data) {
-  document.getElementById("list").innerHTML = "";
-  if (data != "") {
-    for (let items of data) {
-      if (items.isChecked) {
-        document.getElementById(
-          "list"
-        ).innerHTML += `<div><input type="checkbox" id="checkbox" checked> ${items.text} </input></div>`;
-      } else {
-        document.getElementById(
-          "list"
-        ).innerHTML += `<div><input type="checkbox" id="checkbox"> ${items.text} </input></div>`;
-      }
+  list.innerHTML = "";
+  if (data) {
+    for (let item of data) {
+      list.innerHTML += `<div class="checklist"><input type="checkbox" onclick="itemChecked(${data.indexOf(
+        item
+      )})" ${item.isChecked ? "checked" : ""}> ${item.text} </input></div>`;
     }
-    document.getElementById("text").value = "";
+    text.value = "";
   }
 }
-[];
+function itemChecked(index) {
+  data.splice(index, 1);
+  displayData(data);
+}
