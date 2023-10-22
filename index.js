@@ -13,7 +13,7 @@ text.addEventListener("keypress", function (e) {
 
 search.addEventListener("input", function (f) {
   if (f.target.value != "") {
-    const searchData = data.filter((a) => a.text === f.target.value);
+    const searchData = data.filter((a) => a.text.includes(f.target.value));
     console.log(searchData);
     displayData(searchData);
   } else {
