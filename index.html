@@ -8,10 +8,19 @@
   </head>
   <body>
     <p id="demo">Input task and click on the button to populate the list</p>
-    <button id="btn" onclick="btnSubmit()">Click Me</button>
-    <input type="text" name="text" id="text" />
-    <input type="text" name="search" id="search" />
+    <div class="searchLayout">
+      <input type="text" name="text" id="text" placeholder="Enter Task" />
+      <button id="btn" onclick="btnSubmit()">Click Me</button>
+      <input
+        type="text"
+        name="search"
+        id="search"
+        placeholder="Search here..."
+      />
+    </div>
     <ul id="list"></ul>
+    <button id="save" onclick="saveDeal()">Save</button>
+    <button id="revive" onclick="retrieveDeal()">Revive</button>
   </body>
   <script src="index.js"></script>
 </html>

@@ -3,10 +3,21 @@
 }
 
 .checklist {
-  background-color: rgb(109, 109, 228);
+  background-color: rgb(78, 180, 72);
   border-bottom: 1px dashed rgb(192, 188, 188);
   width: 100%;
   height: 50px;
   display: flex;
   align-items: center;
+}
+#demo {
+  text-align: center;
+}
+.searchLayout {
+  position: relative;
+  margin: 0px 0px 0px 40px;
+}
+#search {
+  position: absolute;
+  right: 0;
 }

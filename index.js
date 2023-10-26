@@ -21,7 +21,7 @@ search.addEventListener("input", function (f) {
   }
 });
 
-const data = [];
+let data = [];
 
 function btnSubmit() {
   let txtValue = text.value;
@@ -50,5 +50,14 @@ function displayData(data) {
 }
 function itemChecked(index) {
   data.splice(index, 1);
+  displayData(data);
+}
+
+function saveDeal() {
+  localStorage.setItem("saveData", JSON.stringify(data));
+}
+function retrieveDeal() {
+  const saveDealValue = JSON.parse(localStorage.getItem("saveData"));
+  data = saveDealValue;
   displayData(data);
 }
