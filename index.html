@@ -7,19 +7,17 @@
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <p id="demo">Input task and click on the button to populate the list</p>
+    <p id="demo"></p>
     <div class="searchLayout">
       <div class="taskFieldWrapper">
         <div class="taskField">
           <label for="text">Enter your task</label>
           <input type="text" name="text" id="text" placeholder="Enter Task" />
         </div>
-        <button id="btn" class="searchButton" onclick="btnSubmit()">
-          Click Me
-        </button>
+        <button class="searchButton" onclick="SearchButton()">Add task</button>
       </div>
       <div class="searchField">
-        <label for="search">Search:</label>
+        <label for="search">Search</label>
         <input
           type="text"
           name="search"
@@ -28,13 +26,7 @@
         />
       </div>
     </div>
-    <ul id="list"></ul>
-    <div class="buttons">
-      <button id="save" class="FooterButton" onclick="saveDeal()">Save</button>
-      <button id="revive" class="FooterButton" onclick="retrieveDeal()">
-        Revive
-      </button>
-    </div>
+    <ul class="list" id="list"></ul>
   </body>
   <script src="index.js"></script>
 </html>

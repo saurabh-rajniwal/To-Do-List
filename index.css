@@ -2,57 +2,131 @@
   box-sizing: border-box;
 }
 
+:root {
+  --background: #4d5156;
+  --checklistBackGround: #fff;
+  --buttonbackground: #0000ff;
+  --hover: #007bff;
+  --searchLayoutBack: #f8f8f8;
+  --inputBorder: #ccc;
+  --searchHover: #0056b3;
+}
+
 html,
 body {
-  background-color: #bebebe;
+  height: 100%;
+  font-size: 16px;
+  font-family: arial, sans-serif;
+  background-color: var(--background);
 }
 
 .checklist {
-  background-color: #e5e5e5;
-  border-bottom: 1px dashed rgb(192, 188, 188);
+  background-color: var(--checklistBackGround);
   width: 100%;
-  height: 50px;
+  min-height: 50px;
   display: flex;
   align-items: center;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+}
+.checklist:hover {
+  background-color: var(--hover);
 }
 #demo {
   text-align: center;
+  color: var(--checklistBackGround);
 }
 .searchLayout {
   display: flex;
   justify-content: space-between;
   margin: 0px 40px;
-}
-.buttons {
-  width: 100%;
-  height: 50px;
-  display: flex;
-  justify-content: center;
+  background-color: var(--searchLayoutBack);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   align-items: center;
-  gap: 5px;
 }
-.FooterButton {
-  width: 50px;
-  height: 25px;
-}
+
 .taskField {
   display: flex;
-  align-items: start;
   flex-direction: column;
-  gap: 3px;
+  gap: 5px;
 }
+
+label {
+  font-weight: bold;
+}
+
+input[type="text"] {
+  padding: 8px;
+  border: 1px solid var(--inputBorder);
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+input[type="text"]:focus {
+  border-color: var(--hover);
+}
+
+input[type="checkbox"] {
+  width: 30px;
+  height: 15px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
 .searchField {
   display: flex;
-  align-items: end;
+  flex-direction: column;
   gap: 3px;
 }
 .taskFieldWrapper {
   display: flex;
-  width: fit-content;
   align-items: end;
-  gap: 5px;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 5px;
 }
 .searchButton {
-  width: 80px;
-  height: 21px;
+  background-color: var(--hover);
+  color: var(--checklistBackGround);
+  border: none;
+  border-radius: 4px;
+  padding: 9px 12px;
+  cursor: pointer;
+}
+.searchButton:hover {
+  background-color: var(--searchHover);
+}
+.imgSize {
+  height: 30px;
+  width: 30px;
+  right: 25px;
+  position: absolute;
+  background-color: var(--checklistBackGround);
+  border-radius: 50%;
+  padding: 4px;
+  cursor: pointer;
+}
+.imgSize:hover {
+  background-color: var(--background);
+}
+.textDecoration {
+  text-decoration: line-through;
+}
+#textPosition {
+  width: 88%;
+  overflow-wrap: break-word;
+}
+.list {
+  margin-right: 40px;
+  height: 515px;
+  overflow: scroll;
+}
+
+.noElementText {
+  text-align: center;
 }
